@@ -1,5 +1,6 @@
 package com.qbeuvelet.onevalet_test.di
 
+import com.qbeuvelet.onevalet_test.ui.device_detail.DeviceDetailFragment
 import com.qbeuvelet.onevalet_test.ui.home.HomeFragment
 import dagger.Component
 import javax.inject.Singleton
@@ -14,5 +15,6 @@ import javax.inject.Singleton
 interface ApplicationComponent {
 
     fun inject(fragment: HomeFragment)
+    fun inject(fragment: DeviceDetailFragment)
 
 }

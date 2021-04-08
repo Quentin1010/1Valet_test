@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.qbeuvelet.onevalet_test.ui.device_detail.DeviceDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_device"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.5"
+            app:loadImage="@{viewModel.device.imageURL}"
+            />
+
+        <TextView
+            android:id="@+id/title_device_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_device"
+            android:text="@{viewModel.device.title}"
+            tools:text="Smart outlet" />
+
+        <TextView
+            android:id="@+id/description_device_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/title_device_label"
+            app:layout_constraintTop_toBottomOf="@+id/title_device_label"
+            android:text="@{viewModel.device.description}"
+            tools:text="This is a smart outlet." />
+
+        <TextView
+            android:id="@+id/type_device_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/description_device_label"
+            app:layout_constraintTop_toBottomOf="@+id/description_device_label"
+            app:simpleFormat="@{@string/device_type_format}"
+            app:simpleFormatArgument="@{viewModel.device.type}"
+            tools:text="Type: Outlet" />
+
+        <TextView
+            android:id="@+id/price_device_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/type_device_label"
+            app:layout_constraintTop_toBottomOf="@+id/type_device_label"
+            app:twoFormat="@{@string/device_price_label_format}"
+            app:oneFormatArgument="@{String.valueOf(viewModel.device.price)}"
+            app:twoFormatArgument="@{viewModel.device.currency}"
+            tools:text="Price: 25 USD" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

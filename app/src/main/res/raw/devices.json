@@ -41,22 +41,22 @@
   },
   {
     "Id": "1238",
-    "Type": "Plug",
+    "Type": "Outlet",
     "Price": 30,
     "Currency": "USD",
     "isFavorite": true,
     "imageUrl": "https://homedepot.scene7.com/is/image/homedepotcanada/p_1001561318.jpg?wid=1000&hei=1000&op_sharpen=1",
-    "Title": "Smart Plug",
-    "Description": "This is a smart plug"
+    "Title": "Smart Outlet",
+    "Description": "This is a smart outlet"
   },
   {
     "Id": "1239",
-    "Type": "Plug",
+    "Type": "Outlet",
     "Price": 13,
     "Currency": "USD",
     "isFavorite": false,
     "imageUrl": "https://images.thdstatic.com/productImages/d432ce84-f92c-4030-8a34-55ab904edf70/svn/white-leviton-electrical-outlets-receptacles-r52-00689-00w-64_1000.jpg",
-    "Title": "Test Plug",
-    "Description": "This is a plug"
+    "Title": "Test Outlet",
+    "Description": "This is a outlet"
   }
 ]

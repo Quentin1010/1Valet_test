@@ -3,6 +3,7 @@ package com.qbeuvelet.onevalet_test.ui.home
 import androidx.lifecycle.MutableLiveData
 import com.qbeuvelet.onevalet_test.base.BaseViewModel
 import com.qbeuvelet.onevalet_test.model.Device
+import com.qbeuvelet.onevalet_test.navigation.Destination
 import com.qbeuvelet.onevalet_test.provider.DevicesProviderServiceInterface
 import com.qbeuvelet.onevalet_test.ui.device.OnDeviceItemClickInterface
 import javax.inject.Inject
@@ -18,6 +19,6 @@ class HomeViewModel @Inject constructor(
     }
 
     override fun onItemClick(device: Device) {
-        TODO("Not yet implemented")
+        navigate(Destination.DETAIL_DEVICE(device.id))
     }
 }

@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.qbeuvelet.onevalet_test.base.BaseApp
 import com.qbeuvelet.onevalet_test.base.BaseFragment
 import com.qbeuvelet.onevalet_test.databinding.FragmentHomeBinding
+import com.qbeuvelet.onevalet_test.navigation.Destination
+import com.qbeuvelet.onevalet_test.navigation.NavigationCommand
 import com.qbeuvelet.onevalet_test.ui.device.DeviceRecyclerViewAdapter
 
 class HomeFragment : BaseFragment() {
@@ -36,5 +39,11 @@ class HomeFragment : BaseFragment() {
         }
 
         return binding.root
+    }
+
+    override fun onNavigate(command: NavigationCommand) {
+        when(command.destination){
+            is Destination.DETAIL_DEVICE -> findNavController().navigate(HomeFragmentDirections.homeToDetail(command.destination.deviceId))
+        }
     }
 }
