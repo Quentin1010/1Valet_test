@@ -1,7 +1,6 @@
 package com.qbeuvelet.onevalet_test.ui.device_detail
 
 import androidx.lifecycle.MutableLiveData
-import com.qbeuvelet.onevalet_test.Constants
 import com.qbeuvelet.onevalet_test.base.BaseViewModel
 import com.qbeuvelet.onevalet_test.model.Device
 import com.qbeuvelet.onevalet_test.provider.DevicesProviderServiceInterface

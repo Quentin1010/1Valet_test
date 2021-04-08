@@ -10,10 +10,8 @@ import com.qbeuvelet.onevalet_test.R
 import com.qbeuvelet.onevalet_test.base.BaseApp
 import com.qbeuvelet.onevalet_test.base.BaseFragment
 import com.qbeuvelet.onevalet_test.databinding.FragmentDeviceDetailBinding
-import com.qbeuvelet.onevalet_test.databinding.FragmentHomeBinding
 import com.qbeuvelet.onevalet_test.navigation.Destination
 import com.qbeuvelet.onevalet_test.navigation.NavigationCommand
-import com.qbeuvelet.onevalet_test.ui.device.DeviceRecyclerViewAdapter
 import com.qbeuvelet.onevalet_test.ui.fixCheckStateOnIcon
 
 class DeviceDetailFragment : BaseFragment() {

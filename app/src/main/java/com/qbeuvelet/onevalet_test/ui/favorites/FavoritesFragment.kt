@@ -13,7 +13,6 @@ import com.qbeuvelet.onevalet_test.databinding.FragmentFavoritesBinding
 import com.qbeuvelet.onevalet_test.navigation.Destination
 import com.qbeuvelet.onevalet_test.navigation.NavigationCommand
 import com.qbeuvelet.onevalet_test.ui.device.DeviceRecyclerViewAdapter
-import com.qbeuvelet.onevalet_test.ui.home.HomeFragmentDirections
 
 class FavoritesFragment : BaseFragment() {
 

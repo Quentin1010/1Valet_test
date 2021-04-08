@@ -2,19 +2,18 @@ package com.qbeuvelet.onevalet_test.ui.settings
 
 import android.content.Context
 import android.os.Bundle
-import android.view.*
-import android.widget.SearchView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.qbeuvelet.onevalet_test.R
 import com.qbeuvelet.onevalet_test.base.BaseApp
 import com.qbeuvelet.onevalet_test.base.BaseFragment
-import com.qbeuvelet.onevalet_test.databinding.FragmentHomeBinding
 import com.qbeuvelet.onevalet_test.databinding.FragmentSettingsBinding
 import com.qbeuvelet.onevalet_test.navigation.Destination
 import com.qbeuvelet.onevalet_test.navigation.NavigationCommand
-import com.qbeuvelet.onevalet_test.ui.device.DeviceRecyclerViewAdapter
 
 class SettingsFragment : BaseFragment() {
 
