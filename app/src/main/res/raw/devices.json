@@ -32,7 +32,7 @@
   {
     "Id": "1237",
     "Type": "Lightbulb",
-    "Price": 25,
+    "Price": 17,
     "Currency": "USD",
     "isFavorite": true,
     "imageUrl": "https://cdn.rona.ca/images/05225145b_L.jpg",
@@ -42,7 +42,7 @@
   {
     "Id": "1238",
     "Type": "Plug",
-    "Price": 25,
+    "Price": 30,
     "Currency": "USD",
     "isFavorite": true,
     "imageUrl": "https://homedepot.scene7.com/is/image/homedepotcanada/p_1001561318.jpg?wid=1000&hei=1000&op_sharpen=1",
@@ -52,7 +52,7 @@
   {
     "Id": "1239",
     "Type": "Plug",
-    "Price": 25,
+    "Price": 13,
     "Currency": "USD",
     "isFavorite": false,
     "imageUrl": "https://images.thdstatic.com/productImages/d432ce84-f92c-4030-8a34-55ab904edf70/svn/white-leviton-electrical-outlets-receptacles-r52-00689-00w-64_1000.jpg",
