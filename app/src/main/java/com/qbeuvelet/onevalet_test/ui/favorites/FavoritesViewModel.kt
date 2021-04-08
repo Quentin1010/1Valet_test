@@ -1,21 +1,20 @@
 package com.qbeuvelet.onevalet_test.ui.favorites
 
-import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.qbeuvelet.onevalet_test.Constants
 import com.qbeuvelet.onevalet_test.base.BaseViewModel
 import com.qbeuvelet.onevalet_test.model.Device
 import com.qbeuvelet.onevalet_test.navigation.Destination
 import com.qbeuvelet.onevalet_test.provider.DevicesProviderServiceInterface
+import com.qbeuvelet.onevalet_test.provider.FavoritesServiceInterface
 import com.qbeuvelet.onevalet_test.ui.device.OnDeviceItemClickInterface
 import javax.inject.Inject
 
 class FavoritesViewModel @Inject constructor(
     private val devicesProviderService: DevicesProviderServiceInterface,
-    private val sharedPreferences: SharedPreferences
-): BaseViewModel(), OnDeviceItemClickInterface {
+    private val favoritesService: FavoritesServiceInterface
+) : BaseViewModel(), OnDeviceItemClickInterface {
 
     private val searchQuery = MutableLiveData("")
 
@@ -23,12 +22,12 @@ class FavoritesViewModel @Inject constructor(
         get() = _devices
 
     private val _devices = Transformations.switchMap(searchQuery) { query ->
-        val favorites = sharedPreferences.getStringSet(Constants.FAVORITE_LIST_KEY, setOf())
-        val devices = devicesProviderService.getDevices().filter { favorites?.contains(it.id) == true }
-        MutableLiveData(devices.filter { it.title.startsWith(query, true)}.toMutableList())
+        val favorites = favoritesService.getFavorites()
+        val devices = devicesProviderService.getDevices().filter { favorites.contains(it.id) }
+        MutableLiveData(devices.filter { it.title.startsWith(query, true) }.toMutableList())
     }
 
-    fun updateSearchQuery(query: String){
+    fun updateSearchQuery(query: String) {
         searchQuery.value = query
     }
 

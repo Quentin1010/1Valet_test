@@ -7,6 +7,8 @@ import com.qbeuvelet.onevalet_test.base.ResourcesService
 import com.qbeuvelet.onevalet_test.base.ResourcesServiceInterface
 import com.qbeuvelet.onevalet_test.provider.DevicesProviderService
 import com.qbeuvelet.onevalet_test.provider.DevicesProviderServiceInterface
+import com.qbeuvelet.onevalet_test.provider.FavoritesService
+import com.qbeuvelet.onevalet_test.provider.FavoritesServiceInterface
 import com.qbeuvelet.onevalet_test.ui.device_detail.DeviceDetailViewModel
 import com.qbeuvelet.onevalet_test.ui.favorites.FavoritesViewModel
 import com.qbeuvelet.onevalet_test.ui.home.HomeViewModel
@@ -41,4 +43,8 @@ abstract class AppModuleBinds {
 
     @Binds
     abstract fun providesResourcesService(resourcesService: ResourcesService): ResourcesServiceInterface
+
+    @Binds
+    abstract fun providesFavoritesService(favoritesService: FavoritesService): FavoritesServiceInterface
+
 }
