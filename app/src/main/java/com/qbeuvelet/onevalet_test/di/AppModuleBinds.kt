@@ -8,6 +8,7 @@ import com.qbeuvelet.onevalet_test.base.ResourcesServiceInterface
 import com.qbeuvelet.onevalet_test.provider.DevicesProviderService
 import com.qbeuvelet.onevalet_test.provider.DevicesProviderServiceInterface
 import com.qbeuvelet.onevalet_test.ui.device_detail.DeviceDetailViewModel
+import com.qbeuvelet.onevalet_test.ui.favorites.FavoritesViewModel
 import com.qbeuvelet.onevalet_test.ui.home.HomeViewModel
 import dagger.multibindings.IntoMap
 
@@ -23,6 +24,11 @@ abstract class AppModuleBinds {
     @IntoMap
     @ViewModelKey(DeviceDetailViewModel::class)
     abstract fun bindDeviceDetailViewModel(viewmodel: DeviceDetailViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(FavoritesViewModel::class)
+    abstract fun bindFavoritesViewModel(viewmodel: FavoritesViewModel): ViewModel
 
     @Binds
     abstract fun providesDevicesProviderService(devicesProviderService: DevicesProviderService): DevicesProviderServiceInterface
