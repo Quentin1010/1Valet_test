@@ -44,7 +44,7 @@ class HomeFragment : BaseFragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.home, menu)
-        (menu.findItem(R.id.action_search).actionView as SearchView).apply {
+        (menu.findItem(R.id.action_search).actionView as? SearchView)?.apply {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return true
