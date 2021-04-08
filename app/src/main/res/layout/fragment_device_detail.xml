@@ -63,7 +63,7 @@
             app:layout_constraintStart_toStartOf="@+id/description_device_label"
             app:layout_constraintTop_toBottomOf="@+id/description_device_label"
             app:simpleFormat="@{@string/device_type_format}"
-            app:simpleFormatArgument="@{viewModel.device.type}"
+            app:simpleFormatArgument="@{viewModel.device.type.label}"
             tools:text="Type: Outlet" />
 
         <TextView

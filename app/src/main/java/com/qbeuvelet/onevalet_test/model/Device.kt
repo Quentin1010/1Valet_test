@@ -7,7 +7,7 @@ data class Device (
     val id: String,
 
     @SerializedName("Type")
-    val type: String,
+    val type: DeviceType,
 
     @SerializedName("Price")
     val price: Long,
