@@ -1,7 +1,9 @@
 package com.qbeuvelet.onevalet_test.ui.favorites
 
 import android.content.SharedPreferences
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import com.qbeuvelet.onevalet_test.Constants
 import com.qbeuvelet.onevalet_test.base.BaseViewModel
 import com.qbeuvelet.onevalet_test.model.Device
@@ -15,15 +17,23 @@ class FavoritesViewModel @Inject constructor(
     private val sharedPreferences: SharedPreferences
 ): BaseViewModel(), OnDeviceItemClickInterface {
 
-    val devices = MutableLiveData<List<Device>>(listOf())
+    private val searchQuery = MutableLiveData("")
 
-    init {
-        refreshList()
+    val devices: LiveData<MutableList<Device>>
+        get() = _devices
+
+    private val _devices = Transformations.switchMap(searchQuery) { query ->
+        val favorites = sharedPreferences.getStringSet(Constants.FAVORITE_LIST_KEY, setOf())
+        val devices = devicesProviderService.getDevices().filter { favorites?.contains(it.id) == true }
+        MutableLiveData(devices.filter { it.title.startsWith(query, true)}.toMutableList())
     }
 
-    fun refreshList(){
-        val favorites = sharedPreferences.getStringSet(Constants.FAVORITE_LIST_KEY, setOf())
-        devices.value = devicesProviderService.getDevices().filter { favorites?.contains(it.id) == true }
+    fun updateSearchQuery(query: String){
+        searchQuery.value = query
+    }
+
+    fun clearFilter() {
+        searchQuery.value = ""
     }
 
     override fun onItemClick(device: Device) {

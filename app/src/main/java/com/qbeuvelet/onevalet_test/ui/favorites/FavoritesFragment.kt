@@ -2,9 +2,8 @@ package com.qbeuvelet.onevalet_test.ui.favorites
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.qbeuvelet.onevalet_test.R
@@ -32,8 +31,7 @@ class FavoritesFragment : BaseFragment() {
     ): View {
         val binding = FragmentFavoritesBinding.inflate(layoutInflater)
 
-        viewModel.refreshList()
-
+        viewModel.clearFilter()
         val deviceAdapter = DeviceRecyclerViewAdapter(viewModel)
 
         binding.adapter = deviceAdapter
@@ -42,7 +40,25 @@ class FavoritesFragment : BaseFragment() {
             deviceAdapter.submitList(it)
         }
 
+        setHasOptionsMenu(true)
+
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.favorites, menu)
+        (menu.findItem(R.id.action_search).actionView as SearchView).apply {
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
+
+                override fun onQueryTextChange(query: String?): Boolean {
+                    viewModel.updateSearchQuery(query ?: "")
+                    return true
+                }
+            })
+        }
     }
 
     override fun onNavigate(command: NavigationCommand) {

@@ -2,11 +2,11 @@ package com.qbeuvelet.onevalet_test.ui.home
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.qbeuvelet.onevalet_test.R
 import com.qbeuvelet.onevalet_test.base.BaseApp
 import com.qbeuvelet.onevalet_test.base.BaseFragment
 import com.qbeuvelet.onevalet_test.databinding.FragmentHomeBinding
@@ -38,7 +38,24 @@ class HomeFragment : BaseFragment() {
             deviceAdapter.submitList(it)
         }
 
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.home, menu)
+        (menu.findItem(R.id.action_search).actionView as SearchView).apply {
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
+
+                override fun onQueryTextChange(query: String?): Boolean {
+                    viewModel.updateSearchQuery(query ?: "")
+                    return true
+                }
+            })
+        }
     }
 
     override fun onNavigate(command: NavigationCommand) {
