@@ -26,11 +26,15 @@ class DeviceDetailViewModel @Inject constructor(
     fun onFavoriteClick(isChecked: Boolean) {
         isFavorite.value = isChecked
 
-        val favorites = sharedPreferences.getStringSet(Constants.FAVORITE_LIST_KEY, mutableSetOf())
+        val favorites = mutableSetOf<String>().apply {
+            addAll(sharedPreferences.getStringSet(Constants.FAVORITE_LIST_KEY, mutableSetOf()) ?: listOf())
+        }
 
-        favorites?.remove(device.value?.id)
+        favorites.remove(device.value?.id)
         if (isFavorite.value == true) {
-            favorites?.add(device.value?.id)
+            device.value?.id?.let {
+                favorites.add(it)
+            }
         }
 
         sharedPreferences.edit().putStringSet(Constants.FAVORITE_LIST_KEY, favorites).apply()
