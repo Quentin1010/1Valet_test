@@ -47,7 +47,7 @@ class DeviceDetailFragment : BaseFragment() {
         menu.findItem(R.id.action_favorite).apply {
             fixCheckStateOnIcon()
             setOnMenuItemClickListener {
-                isChecked
+                viewModel.onFavoriteClick(!isChecked)
                 true
             }
         }

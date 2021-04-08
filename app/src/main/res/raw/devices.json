@@ -4,7 +4,6 @@
     "Type": "Sensor",
     "Price": 20,
     "Currency": "USD",
-    "isFavorite": false,
     "imageUrl": "https://www.allegromicro.com/-/media/allegro/allegromicro/misc-images/current-sensors-page/0-50a-current-sensor.ashx?h=1800&iar=0&w=2324&sc_lang=en&hash=D4D7F31D62DB6ECA29205D1F29F1F342",
     "Title": "Test Sensor",
     "Description": "This is a sensor."
@@ -14,7 +13,6 @@
     "Type": "Thermostat",
     "Price": 25,
     "Currency": "USD",
-    "isFavorite": true,
     "imageUrl": "https://cdn.rona.ca/images/05225145b_L.jpg",
     "Title": "Test Thermostat",
     "Description": "This is a thermostat"
@@ -24,8 +22,7 @@
     "Type": "Lightbulb",
     "Price": 12,
     "Currency": "USD",
-    "isFavorite": true,
-    "imageUrl": "https://cdn.rona.ca/images/05225145b_L.jpg",
+    "imageUrl": "https://www.lightbulbwholesaler.com/images/Category/icon/609.jpg",
     "Title": "Test Lightbulb",
     "Description": "This is a lightbulb"
   },
@@ -34,8 +31,7 @@
     "Type": "Lightbulb",
     "Price": 17,
     "Currency": "USD",
-    "isFavorite": true,
-    "imageUrl": "https://cdn.rona.ca/images/05225145b_L.jpg",
+    "imageUrl": "https://images.techhive.com/images/article/2015/04/philipshue-100577371-large.jpg",
     "Title": "Smart Lightbulb",
     "Description": "This is a smart lightbulb"
   },
@@ -44,7 +40,6 @@
     "Type": "Outlet",
     "Price": 30,
     "Currency": "USD",
-    "isFavorite": true,
     "imageUrl": "https://homedepot.scene7.com/is/image/homedepotcanada/p_1001561318.jpg?wid=1000&hei=1000&op_sharpen=1",
     "Title": "Smart Outlet",
     "Description": "This is a smart outlet"
@@ -54,7 +49,6 @@
     "Type": "Outlet",
     "Price": 13,
     "Currency": "USD",
-    "isFavorite": false,
     "imageUrl": "https://images.thdstatic.com/productImages/d432ce84-f92c-4030-8a34-55ab904edf70/svn/white-leviton-electrical-outlets-receptacles-r52-00689-00w-64_1000.jpg",
     "Title": "Test Outlet",
     "Description": "This is a outlet"

@@ -15,8 +15,6 @@ data class Device (
     @SerializedName("Currency")
     val currency: String,
 
-    val isFavorite: Boolean,
-
     @SerializedName("imageUrl")
     val imageURL: String,
 
