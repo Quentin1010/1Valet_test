@@ -1,27 +1,40 @@
 package com.qbeuvelet.onevalet_test.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.qbeuvelet.onevalet_test.R
+import androidx.fragment.app.viewModels
+import com.qbeuvelet.onevalet_test.base.BaseApp
+import com.qbeuvelet.onevalet_test.base.BaseFragment
+import com.qbeuvelet.onevalet_test.databinding.FragmentHomeBinding
+import com.qbeuvelet.onevalet_test.ui.device.DeviceRecyclerViewAdapter
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    override val viewModel by viewModels<HomeViewModel>{ viewModelFactory }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        BaseApp.appComponent.inject(this)
+    }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        return root
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val binding = FragmentHomeBinding.inflate(layoutInflater)
+
+        val deviceAdapter = DeviceRecyclerViewAdapter(viewModel)
+
+        binding.adapter = deviceAdapter
+
+        viewModel.devices.observe(viewLifecycleOwner) {
+            deviceAdapter.submitList(it)
+        }
+
+        return binding.root
     }
 }

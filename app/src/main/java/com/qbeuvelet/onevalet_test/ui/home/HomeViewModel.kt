@@ -1,13 +1,23 @@
 package com.qbeuvelet.onevalet_test.ui.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.qbeuvelet.onevalet_test.base.BaseViewModel
+import com.qbeuvelet.onevalet_test.model.Device
+import com.qbeuvelet.onevalet_test.provider.DevicesProviderServiceInterface
+import com.qbeuvelet.onevalet_test.ui.device.OnClickInterface
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel @Inject constructor(
+    devicesProviderService: DevicesProviderServiceInterface
+): BaseViewModel(), OnClickInterface {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    val devices = MutableLiveData<List<Device>>(listOf())
+
+    init {
+        devices.value = devicesProviderService.getDevices()
     }
-    val text: LiveData<String> = _text
+
+    override fun onItemClick(device: Device) {
+        TODO("Not yet implemented")
+    }
 }
