@@ -3,6 +3,7 @@ package com.qbeuvelet.onevalet_test.di
 import com.qbeuvelet.onevalet_test.ui.device_detail.DeviceDetailFragment
 import com.qbeuvelet.onevalet_test.ui.favorites.FavoritesFragment
 import com.qbeuvelet.onevalet_test.ui.home.HomeFragment
+import com.qbeuvelet.onevalet_test.ui.settings.SettingsFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -18,5 +19,6 @@ interface ApplicationComponent {
     fun inject(fragment: HomeFragment)
     fun inject(fragment: DeviceDetailFragment)
     fun inject(fragment: FavoritesFragment)
+    fun inject(fragment: SettingsFragment)
 
 }

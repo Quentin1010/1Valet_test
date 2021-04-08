@@ -32,6 +32,12 @@
     </fragment>
 
     <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.qbeuvelet.onevalet_test.ui.settings.SettingsFragment"
+        android:label="@string/nav_title_settings"
+        tools:layout="@layout/fragment_settings"/>
+
+    <fragment
         android:id="@+id/nav_detail_device"
         android:name="com.qbeuvelet.onevalet_test.ui.device_detail.DeviceDetailFragment"
         android:label="@string/nav_title_detail"
