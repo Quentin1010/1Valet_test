@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.qbeuvelet.onevalet_test.databinding.DeviceItemListBinding
 import com.qbeuvelet.onevalet_test.model.Device
 
-class DeviceRecyclerViewAdapter (private val onClickInterface: OnClickInterface) : ListAdapter<Device, DeviceRecyclerViewAdapter.DeviceViewHolder>(Companion) {
+class DeviceRecyclerViewAdapter (private val onDeviceItemClickInterface: OnDeviceItemClickInterface) : ListAdapter<Device, DeviceRecyclerViewAdapter.DeviceViewHolder>(Companion) {
 
     class DeviceViewHolder(val binding: DeviceItemListBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -27,7 +27,7 @@ class DeviceRecyclerViewAdapter (private val onClickInterface: OnClickInterface)
     override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
         val currentDevice = getItem(position)
         holder.binding.device = currentDevice
-        holder.binding.onClickInterface = onClickInterface
+        holder.binding.onClickInterface = onDeviceItemClickInterface
         holder.binding.executePendingBindings()
     }
 }
